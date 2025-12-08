@@ -33,6 +33,7 @@ We need to have a paddle, which hits a ball that bounces off walls and hits othe
 What are some features that are not essential to the program, but you would like to see (provided you have time after completing the necessary features. Theses can be customizations that are not part of the core requirements.
 
  We could also have the grid of bricks move down as time passes, and if it reaches a certain distance from the paddle (is very close), the game will reset. 
+ We could have an additional stage with a faster/slower/smaller/bigger ball or a faster/slower/smaller/bigger paddle. We could also instead have a timer count down, or we could have different bricks that result in different points.** new idea 
 
 ### Array Usage
 How will you be using arrays in this project?
@@ -69,6 +70,7 @@ Class Name: GameStart
   - int screenSize
 - METHODS
   - void startGame()
+  - void updateScore()** new idea
   - void checkCollisions()
   - void gameOver()
   - void levelComplete()
