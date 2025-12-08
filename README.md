@@ -72,6 +72,7 @@ Class Name: GameStart
   - void checkCollisions()
   - void gameOver()
   - void levelComplete()
+  - void newStage()
   - void keyPressed()
 
 Class Name: Paddle
