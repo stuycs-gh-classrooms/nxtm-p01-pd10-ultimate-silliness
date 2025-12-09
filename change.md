@@ -1,31 +1,69 @@
-Issue One) From NATHANIEL MOY & CONNER MEYER
-Cool things:
+- We had many suggestions on adding a 1D Array, which makes sense -->
 
-    Your documentation is very cool because it is extremely detailed
-    Your methods and functions are listed very cleanly, with return types and parameters listed. Good job !
+ 1D Array: int[] brickLives (each brick's durability / number of hits remaining
 
-Clarifying Qs:
 
-    Why are you not using 1D arrays?
-    How will you keep track of all the different stages (i.e. different block arrangements as the user progresses through levels)
+- Mouse click (anywhere on screen): Launch the ball when the game is paused, assuming the ball sits on top of the paddle until the player clicks.
 
-Suggestions:
 
-    Make use of 1D arrays please
-    Implement more ways to control the game through the mouse
+- We added a brick class, so in GameStart we need to add these elements:
 
-Issue Two) Feedback from Hugo Kudera and Tyler Lin 
-Hugo Kudera and Tyler Lin
+Brick[][] bricks (we need a Brick class)
 
-Cool things:
-The next stage would button is an interesting add
-Levelcomplete might be cool if theres like a win screen
+  - int[] brickLives (stores each brick's life using a 1D array)
 
-Clarifying things:
-What exactly would screenSize do?
-Theres no brick as your classes
+  - int currentLevel (tracks the user's progress throughout the stages)
 
-Suggestions:
+  - Level[] levels (storing multiple stage layouts)
 
-Use a 1D array to give each brick multiple lives
-Start the game paused
+
+- For the methods in GameStart, we added:
+
+  - void loadLevel(int levelNum) (loads a specific stage)
+
+  - void mousePressed() (handles all new mouse controls)
+
+  - void resetBallAndPaddle() (prepares for a new life, while staying paused)
+
+
+- For the Ball class:
+
+  - New instance variable: boolean isLaunched (ball shouldn't move until clicked or launched)
+
+  - New Method: - void launch() (called when mouse click triggers the ball to start)
+
+
+We added Brick and Level as classes as well:
+
+Class Name: Brick (we need a Brick class)
+
+    - Instance Variables:
+
+    - int x
+
+    - int y
+
+    - int width
+
+    - int height
+
+    - int index (connects each brick to the brickLives array)
+
+    - Methods:
+
+    - Brick(int s, int y, int w, int h, int index)
+
+    - void draw()
+
+    - boolean isHit(int ballX, int ballY, int ballD)
+
+
+    Class Name: Level (added to manage different stage layouts)
+
+    - Instance variables:
+
+    - int[][] layout (stores rows/columns of brick positions or durability)
+
+    - Methods:
+
+    - Level(int[][]layout)
