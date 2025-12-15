@@ -89,7 +89,7 @@ void checkCollisions() {
 if (ball.y + ball.diameter/2 >= paddle.y &&
     ball.y + ball.diameter/2 <= paddle.y + paddle.h &&
     ball.x + ball.diameter/2 >= paddle.x &&
-    ball.x - ball.diameter/2 <= paddle.x + paddle.w) {  // Only bounce when moving downward
+    ball.x - ball.diameter/2 <= paddle.x + paddle.w) {  
   ball.speedY *= -1;
 }
 
