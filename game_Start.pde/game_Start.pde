@@ -36,10 +36,10 @@ void draw() {
   }
 
   // If ball falls below screen
-  if (ball.y > height) {
-    lives--;
-    resetBallAndPaddle();
-  }
+if (ball.y - ball.diameter/2 > paddle.y) {
+  lives--;
+  resetBallAndPaddle();
+}
 
   // Game Over
   if (lives <= 0) {
@@ -53,7 +53,7 @@ void draw() {
 }
 
 void startGame() {
-  paddle = new Paddle(width/2 - 40, height - 40, 80, 15);
+  paddle = new Paddle(width/2 - 40, height - 40, 120, 15);
   ball = new Ball(width/2, height/2, 15);
   level = new Level(1);      // Start at level 1
   isPlaying = false;          // Start paused
@@ -86,11 +86,12 @@ void mousePressed() {
 
 void checkCollisions() {
   // Ball to Paddle
-  if (ball.y + ball.diameter >= paddle.y &&
-      ball.x + ball.diameter >= paddle.x &&
-      ball.x <= paddle.x + paddle.w) {
-    ball.speedY *= -1;
-  }
+if (ball.y + ball.diameter/2 >= paddle.y &&
+    ball.y + ball.diameter/2 <= paddle.y + paddle.h &&
+    ball.x + ball.diameter/2 >= paddle.x &&
+    ball.x - ball.diameter/2 <= paddle.x + paddle.w) {  // Only bounce when moving downward
+  ball.speedY *= -1;
+}
 
   // Ball to Brick
   for (int r = 0; r < level.rows; r++) {
@@ -135,4 +136,3 @@ void newStage() {
   level = new Level(level.levelNum + 1);
   resetBallAndPaddle();
 }
-
